@@ -1,0 +1,237 @@
+/*
+ * Especificaciones Visuales (Guía de Estilo):
+ * Primario (Institucional): #00509D (Azul)
+ * Secundario (Acción/CTA): #FFC300 (Amarillo)
+ * Tipografía: Inter (simulada con system-ui)
+ */
+
+:root {
+    --color-primary: #00509D;
+    --color-secondary: #FFC300;
+    --color-success: #28a745;
+    --color-danger: #dc3545;
+    --color-background: #f4f7f9;
+    --font-stack: 'Inter', system-ui, sans-serif;
+}
+
+/* Estilos Generales */
+body {
+    font-family: var(--font-stack);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: #333;
+}
+
+header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: opacity 0.3s;
+}
+
+.nav-menu a:hover {
+    opacity: 0.8;
+}
+
+/* Módulo de Búsqueda (Maquetación Estructural) */
+.search-module {
+    background-color: white;
+    padding: 30px 5%;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+}
+
+.search-module h1 {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#search-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* RNF-Usabilidad: Responsive Design */
+    justify-content: center;
+}
+
+.input-group {
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Botón CTA (Especificación Visual) */
+.cta-button {
+    background-color: var(--color-secondary); /* Amarillo brillante */
+    color: var(--color-primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-end; /* Alinea el botón con los campos de entrada */
+}
+
+.cta-button:hover {
+    background-color: #f7a800; /* Tono más oscuro al pasar el mouse */
+}
+
+/* Contenedor de Resultados */
+.results-container {
+    padding: 20px 5%;
+    max-width: 90%;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.results-container h2 {
+    color: var(--color-primary);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Tabla de Rutas (RF-004) */
+#routes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#routes-table th, #routes-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#routes-table th {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Etiquetas de Estado */
+.status-tag {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85em;
+    display: inline-block;
+}
+
+.status-tag.ontime {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.status-tag.delayed {
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.status-tag.full {
+    background-color: #6c757d;
+    color: white;
+}
+
+.status-message {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 5%;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+/* Media Query: Diseño Responsive para Móviles (RNF-Usabilidad) */
+@media (max-width: 768px) {
+    /* El formulario se apila verticalmente */
+    #search-form {
+        flex-direction: column;
+    }
+    
+    /* La tabla se vuelve menos prioritaria, se puede usar un patrón de lista */
+    #routes-table thead {
+        display: none; /* Oculta encabezados de tabla */
+    }
+
+    #routes-table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    #routes-table td {
+        display: block;
+        text-align: right;
+        border: none;
+        position: relative;
+    }
+
+    /* Muestra el encabezado de la columna como una etiqueta */
+    #routes-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 50%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+        text-align: left;
+        color: var(--color-primary);
+    }
+    
+    .cta-button {
+        width: 100%; /* El botón CTA ocupa todo el ancho */
+    }
+}
