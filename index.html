@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal de Transporte - Consulta de Rutas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Terminal 🚌</div>
+        <nav class="nav-menu">
+            <a href="#">Comprar Tiquetes</a>
+            <a href="#">Mi Cuenta</a>
+            <a href="#">Información</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-module">
+            <h1>Encuentra tu Ruta y Tiquete</h1>
+            <form id="search-form">
+                <div class="input-group">
+                    <label for="origen"><i class="fas fa-map-marker-alt"></i> Origen</label>
+                    <input type="text" id="origen" placeholder="Ciudad de Salida" required>
+                </div>
+                <div class="input-group">
+                    <label for="destino"><i class="fas fa-route"></i> Destino</label>
+                    <input type="text" id="destino" placeholder="Ciudad de Destino" required>
+                </div>
+                <div class="input-group date-input">
+                    <label for="fecha"><i class="fas fa-calendar-alt"></i> Fecha</label>
+                    <input type="date" id="fecha" required>
+                </div>
+                <button type="submit" class="cta-button" id="search-button">
+                    <i class="fas fa-search"></i> Buscar Rutas
+                </button>
+            </form>
+        </section>
+
+        <section class="results-container">
+            <h2>Próximas Salidas Disponibles</h2>
+            <p id="search-status" class="status-message">Ingresa una ruta para buscar.</p>
+            
+            <table id="routes-table">
+                <thead>
+                    <tr>
+                        <th>Hora Salida</th>
+                        <th>Empresa</th>
+                        <th>Destino</th>
+                        <th>Precio</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="routes-body">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Terminal de Transporte. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="#">Términos y Condiciones</a> | 
+            <a href="#">Política de Privacidad</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
